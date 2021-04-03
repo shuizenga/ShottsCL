@@ -1,0 +1,35 @@
+Systemd - Notes
+
+after running history, run a numbered command this way: $ ![number of command]
+what's running: $ps fax | less
+## $man systemd.timer
+## systemctl cat fstrim.timer ## check this out as Sander indicates it replaces cron jobs
+
+
+systemd manages everything after kernal loaded
+SD not a service manager
+fstab now simply an input file for systemd
+** do modify files in /usr/lib/systemd/systemd
+** user custom config go to /etc/systemd/system/
+** /run/systemd/system
+** systemctl edit [servicename].service
+** systemctl reload [servicename].service
+** systemctl restart [servicename].service
+** systemd-analyze blame # a alternative to top command #
+
+$ man -k systemd.directives
+$ man systemd service
+$ man systemd exec
+** Important $ man 7 systemd.directives
+systemctl edit sshd.service
+systemctl show sshd.service
+systemctl mask vsftpd.service
+systemclt unmask vsftpd.service
+systemctl list.dependencies
+systemctl list.units
+journalctl
+journalctl -u sshd
+systemctl daemon-reload
+# device montoring  $ udevadm monitor
+$ loginctl list-sessions
+$ loginctl kill-session [number of session]
